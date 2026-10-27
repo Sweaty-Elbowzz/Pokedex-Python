@@ -27,12 +27,30 @@ if language.lower() == "yes":
 
 
 # Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
-type = input("Would you like to find a specific type of pokemon?")
-if type == "yes":
-    select_type = input("Select a type. ")
-    select_type = select_type.lower()
-    for s in range(0, 809):
-        print()
+for i in range(0, 809):   
+    name = data[i]["name"]["english"]
+    print(name)
+
+# Add a language choice feature and print the pokemons name based on the user input
+language = input("Would you like to switch languages?: ")
+if language.lower() == "yes":
+    print("Select either Japanese, Chinese, or French.")
+    choice = input("Enter a language: ")
+    if choice.lower() == "japanese":
+        for i in range(0, 809):
+            print(data[i]["name"]["japanese"])
+    elif choice.lower() == "chinese":
+        for i in range(0, 809):
+            print(data[i]["name"]["chinese"])
+    elif choice.lower() == "french":
+        for i in range(0, 809):
+            print(data[i]["name"]["french"])
+    else:
+        print("Unknown language choice.")
+
+
+# Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
+
 
 
 
