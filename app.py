@@ -32,7 +32,7 @@ if type == "yes":
     select_type = select_type.lower()
     for t in range(0, 809):
         if select_type in data[t]["type"]:
-            poketype = data[t]["name"][f"language"]
+            poketype = data[t]["name"][f"{language}"]
             print(f"{t+1}: {poketype}")
 
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
