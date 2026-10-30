@@ -24,16 +24,19 @@ if language.lower() == "yes":
             print(data[i]["name"]["french"])
     else:
         print("Invalid language choice.")
+if language.lower() == "no":
+    choice = "english"
 
 # Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
 type = input("Would you like to find a specific type of pokemon?: ")
 if type == "yes":
     select_type = input("Select a type: ")
     select_type = select_type.lower()
+    select_type = select_type.capitalize()
     for t in range(0, 809):
         if select_type in data[t]["type"]:
-            poketype = data[t]["name"][f"{language}"]
-            print(f"{t+1}: {poketype}")
+            poketype = data[t]["name"][f"{choice}"]
+            print(f"{t+1}: {poketype}") 
 
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
 
