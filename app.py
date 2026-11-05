@@ -61,8 +61,8 @@ learn = learn.lower()
 learn = learn.capitalize()
 for l in range(0, 809):
     if learn == data[l]["name"]["english"]:
-        pokemon_type = data[l]["type"]
+        poketype = data[l]["type"]
         for p in range(0, len(move)):
-            if move[p]["type"]:
+            if move[p]["type"] in poketype:
                 thing = move[p]["ename"]
                 print(thing)
