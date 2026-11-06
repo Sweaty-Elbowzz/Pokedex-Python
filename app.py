@@ -6,8 +6,8 @@ moves = open("./moves.json", encoding="utf8")
 data = json.load(pokedex)
 move = json.load(moves)
 # Create a function that will take the data from the JSON file and you will iterate through the list of pokemon and print each pokemons name.
-for i in range(0, 809):   
-    name = data[i]["name"]["english"]
+for i, pokemon in enumerate(data):   
+    name = pokemon["name"]["english"]
     print(name)
 
 # Add a language choice feature and print the pokemons name based on the user input
@@ -16,14 +16,14 @@ if language.lower() == "yes":
     print("Select either Japanese, Chinese, or French.")
     choice = input("Enter a language: ")
     if choice.lower() == "japanese":
-        for i in range(0, 809):
-            print(data[i]["name"]["japanese"])
+        for i, pokemon in enumerate(data):
+            print(pokemon["name"]["japanese"])
     elif choice.lower() == "chinese":
-        for i in range(0, 809):
-            print(data[i]["name"]["chinese"])
+        for i, pokemon in enumerate(data):
+            print(pokemon["name"]["chinese"])
     elif choice.lower() == "french":
-        for i in range(0, 809):
-            print(data[i]["name"]["french"])
+        for i, pokemon in enumerate(data):
+            print(pokemon["name"]["french"])
     else:
         print("Invalid language choice.")
 if language.lower() == "no":
@@ -35,9 +35,9 @@ if type == "yes":
     select_type = input("Select a type: ")
     select_type = select_type.lower()
     select_type = select_type.capitalize()
-    for t in range(0, 809):
-        if select_type in data[t]["type"]:
-            poketype = data[t]["name"][f"{choice}"]
+    for t, pokemon in enumerate(data):
+        if select_type in pokemon["type"]:
+            poketype = pokemon["name"][f"{choice}"]
             print(f"{t+1}: {poketype}") 
 if type == "no":
     print("Continue.")
@@ -48,7 +48,7 @@ if find == "yes":
     word = input("What pokemon do you want to find?:")
     word = word.lower()
     word = word.capitalize()
-    for f in range(0, 809):
+    for f, pokemon in enumerate(data):
         if word in data[f]["name"]["english"]:
             name = data[f]["name"][choice]
             print(f"{f+1}: {name}")
@@ -59,10 +59,10 @@ if find == "no":
 learn = input("Give a pokemon: ")
 learn = learn.lower()
 learn = learn.capitalize()
-for l in range(0, 809):
-    if learn == data[l]["name"]["english"]:
+for l, pokemon in enumerate(data):
+    if learn == pokemon["name"]["english"]:
         poketype = data[l]["type"]
-        for p in range(0, len(move)):
-            if move[p]["type"] in poketype:
-                thing = move[p]["ename"]
+        for p in move:
+            if p["type"] in poketype:
+                thing = p["ename"]
                 print(thing)
