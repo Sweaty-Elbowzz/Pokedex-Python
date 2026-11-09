@@ -6,7 +6,7 @@ moves = open("./moves.json", encoding="utf8")
 data = json.load(pokedex)
 move = json.load(moves)
 # Create a function that will take the data from the JSON file and you will iterate through the list of pokemon and print each pokemons name.
-for i, pokemon in enumerate(data):   
+for pokemon in data:   
     name = pokemon["name"]["english"]
     print(name)
 
@@ -16,13 +16,13 @@ if language.lower() == "yes":
     print("Select either Japanese, Chinese, or French.")
     choice = input("Enter a language: ")
     if choice.lower() == "japanese":
-        for i, pokemon in enumerate(data):
+        for pokemon in data:
             print(pokemon["name"]["japanese"])
     elif choice.lower() == "chinese":
-        for i, pokemon in enumerate(data):
+        for pokemon in data:
             print(pokemon["name"]["chinese"])
     elif choice.lower() == "french":
-        for i, pokemon in enumerate(data):
+        for pokemon in data:
             print(pokemon["name"]["french"])
     else:
         print("Invalid language choice.")
