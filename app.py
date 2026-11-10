@@ -35,10 +35,10 @@ if type == "yes":
     select_type = input("Select a type: ")
     select_type = select_type.lower()
     select_type = select_type.capitalize()
-    for t, pokemon in enumerate(data):
+    for pokemon in data:
         if select_type in pokemon["type"]:
             poketype = pokemon["name"][f"{choice}"]
-            print(f"{t+1}: {poketype}") 
+            print(poketype) 
 if type == "no":
     print("Continue.")
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
@@ -48,10 +48,10 @@ if find == "yes":
     word = input("What pokemon do you want to find?:")
     word = word.lower()
     word = word.capitalize()
-    for f, pokemon in enumerate(data):
-        if word in data[f]["name"]["english"]:
-            name = data[f]["name"][choice]
-            print(f"{f+1}: {name}")
+    for pokemon in data:
+        if word in pokemon["name"]["english"]:
+            name = pokemon["name"][choice.lower()]
+            print(name)
 if find == "no":
     print ("Continue.")
 
@@ -59,9 +59,9 @@ if find == "no":
 learn = input("Give a pokemon: ")
 learn = learn.lower()
 learn = learn.capitalize()
-for l, pokemon in enumerate(data):
+for pokemon in data:
     if learn == pokemon["name"]["english"]:
-        poketype = data[l]["type"]
+        poketype = pokemon["type"]
         for p in move:
             if p["type"] in poketype:
                 thing = p["ename"]
