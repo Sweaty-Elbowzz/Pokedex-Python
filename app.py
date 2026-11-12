@@ -37,7 +37,7 @@ if type == "yes":
     select_type = select_type.capitalize()
     for pokemon in data:
         if select_type in pokemon["type"]:
-            poketype = pokemon["name"][f"{choice}"]
+            poketype = pokemon["name"][choice]
             print(poketype) 
 if type == "no":
     print("Continue.")
@@ -50,7 +50,7 @@ if find == "yes":
     word = word.capitalize()
     for pokemon in data:
         if word in pokemon["name"]["english"]:
-            name = pokemon["name"][choice.lower()]
+            name = pokemon["name"][f"{choice.lower()}"]
             print(name)
 if find == "no":
     print ("Continue.")
