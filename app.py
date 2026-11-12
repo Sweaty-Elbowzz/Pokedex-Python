@@ -15,26 +15,16 @@ language = input("Would you like to switch languages?: ")
 if language.lower() == "yes":
     print("Select either Japanese, Chinese, or French.")
     choice = input("Enter a language: ")
-    if choice.lower() == "japanese":
-        for pokemon in data:
-            print(pokemon["name"]["japanese"])
-    elif choice.lower() == "chinese":
-        for pokemon in data:
-            print(pokemon["name"]["chinese"])
-    elif choice.lower() == "french":
-        for pokemon in data:
-            print(pokemon["name"]["french"])
-    else:
-        print("Invalid language choice.")
+    for pokemon in data:
+        lang = pokemon["name"][f"{choice.lower()}"]
+        print(lang)
 if language.lower() == "no":
     choice = "english"
 
 # Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
 type = input("Would you like to find a type of pokemon?: ")
 if type == "yes":
-    select_type = input("Select a type: ")
-    select_type = select_type.lower()
-    select_type = select_type.capitalize()
+    select_type = input("Select a type: ").lower().capitalize()
     for pokemon in data:
         if select_type in pokemon["type"]:
             poketype = pokemon["name"][choice]
@@ -45,9 +35,7 @@ if type == "no":
 find = input("Would you like to find a specific pokemon?: ")
 find = find.lower()
 if find == "yes":
-    word = input("What pokemon do you want to find?:")
-    word = word.lower()
-    word = word.capitalize()
+    word = input("What pokemon do you want to find?:").lower().capitalize()
     for pokemon in data:
         if word in pokemon["name"]["english"]:
             name = pokemon["name"][f"{choice.lower()}"]
@@ -56,9 +44,7 @@ if find == "no":
     print ("Continue.")
 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
-learn = input("Give a pokemon: ")
-learn = learn.lower()
-learn = learn.capitalize()
+learn = input("Give a pokemon: ").lower().capitalize()
 for pokemon in data:
     if learn == pokemon["name"]["english"]:
         poketype = pokemon["type"]
