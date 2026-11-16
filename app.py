@@ -16,7 +16,7 @@ if language.lower() == "yes":
     print("Select either Japanese, Chinese, or French.")
     choice = input("Enter a language: ")
     for pokemon in data:
-        lang = pokemon["name"][f"{choice.lower()}"]
+        lang = pokemon["name"][choice.lower()]
         print(lang)
 if language.lower() == "no":
     choice = "english"
@@ -38,7 +38,7 @@ if find == "yes":
     word = input("What pokemon do you want to find?:").lower().capitalize()
     for pokemon in data:
         if word in pokemon["name"]["english"]:
-            name = pokemon["name"][f"{choice.lower()}"]
+            name = pokemon["name"][choice.lower()]
             print(name)
 if find == "no":
     print ("Continue.")
